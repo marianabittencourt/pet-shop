@@ -83,10 +83,7 @@ public class TelaCadastroDeClientes extends javax.swing.JFrame {
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Idade", "Telefone", "RG", "CPF"
@@ -178,7 +175,7 @@ public class TelaCadastroDeClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    // TODO ver se da para remover estes metodos. nao sao usados
+    
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
@@ -196,6 +193,8 @@ public class TelaCadastroDeClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_cpfActionPerformed
 
     private void botaoIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirActionPerformed
+        
+        
         String nome = this.nome.getText();
         String idade = this.idade.getText();
         String telefone = this.telefone.getText();
@@ -204,7 +203,7 @@ public class TelaCadastroDeClientes extends javax.swing.JFrame {
 
         DefaultTableModel val = (DefaultTableModel) tabela.getModel();
         val.addRow(new String[]{nome, idade, telefone, rg, cpf});
-        // TODO Ver pq esta incluindo na ultima linha e nao na primeira
+     
         
         
         limparCampos();
@@ -221,8 +220,8 @@ public class TelaCadastroDeClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoIncluirActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        // TODO depois tu ve esse
-        //(DefaultTableModel) tabela.getModel() ).removeRow(tabela.getSelectedRow());
+       
+        ((DefaultTableModel) tabela.getModel() ).removeRow(tabela.getSelectedRow());
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     public static void main(String args[]) {

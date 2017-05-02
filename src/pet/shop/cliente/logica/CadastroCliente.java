@@ -20,7 +20,7 @@ public class CadastroCliente {
 
         for (int i = 0; i < listaClientes.size(); i++) {
             Cliente cliente = (Cliente) listaClientes.elementAt(i);
-            clientes += cliente.getNome() + " - " + cliente.getIdade() + "\n";
+            clientes += cliente.getNome() + " - " + cliente.getIdade()+ " - " + cliente.getTelefone()+ " - " + cliente.getRg() + " - "+ cliente.getCpf()+ "\n";
         }
         return clientes;
     }

@@ -28,11 +28,11 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
         peso = new javax.swing.JTextField();
         tipo = new javax.swing.JTextField();
         clienteResponsavel = new javax.swing.JTextField();
-        botãoincluir = new javax.swing.JButton();
-        botãomodificar = new javax.swing.JButton();
-        botãoexcluir = new javax.swing.JButton();
+        botaoIncluir = new javax.swing.JButton();
+        botaoModificar = new javax.swing.JButton();
+        botaoExcluir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabela1 = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -74,44 +74,36 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
             }
         });
 
-        botãoincluir.setText("Incluir");
-        botãoincluir.addActionListener(new java.awt.event.ActionListener() {
+        botaoIncluir.setText("Incluir");
+        botaoIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botãoincluirActionPerformed(evt);
+                botaoIncluirActionPerformed(evt);
             }
         });
 
-        botãomodificar.setText("Modificar");
-        botãomodificar.addActionListener(new java.awt.event.ActionListener() {
+        botaoModificar.setText("Modificar");
+        botaoModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botãomodificarActionPerformed(evt);
+                botaoModificarActionPerformed(evt);
             }
         });
 
-        botãoexcluir.setText("Excluir");
-        botãoexcluir.addActionListener(new java.awt.event.ActionListener() {
+        botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botãoexcluirActionPerformed(evt);
+                botaoExcluirActionPerformed(evt);
             }
         });
 
-        tabela1.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Idade", "Raça", "Peso", "Tipo", "Cliente Responsável"
             }
         ));
-        jScrollPane2.setViewportView(tabela1);
+        jScrollPane2.setViewportView(tabela);
 
         jLabel7.setText("Listagem Animais");
 
@@ -144,11 +136,11 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
                                 .addComponent(raca, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(idade, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botãoincluir)
+                        .addComponent(botaoIncluir)
                         .addGap(34, 34, 34)
-                        .addComponent(botãomodificar)
+                        .addComponent(botaoModificar)
                         .addGap(18, 18, 18)
-                        .addComponent(botãoexcluir))
+                        .addComponent(botaoExcluir))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -181,9 +173,9 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
                     .addComponent(clienteResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botãoincluir)
-                    .addComponent(botãomodificar)
-                    .addComponent(botãoexcluir))
+                    .addComponent(botaoIncluir)
+                    .addComponent(botaoModificar)
+                    .addComponent(botaoExcluir))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -212,24 +204,39 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_racaActionPerformed
 
-    private void botãoincluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoincluirActionPerformed
-        //String nome = this.nome.getText().trim();
-        //String idade = this.idade.getText().trim();
-        //String telefone = this.raca.getText().trim();
-        //String rg = this.peso.getText().trim();
-        //String cpf = this.tipo.getText().trim();
+    private void botaoIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIncluirActionPerformed
+        String nome = this.nome.getText();
+        String idade = this.idade.getText();
+        String raca = this.raca.getText();
+        String peso = this.peso.getText();
+        String tipo = this.tipo.getText();
+        String clienteResponsavel = this.clienteResponsavel.getText();
         
-        //DefaultTableModel val = (DefaultTableModel) tabela.getModel();
-        //val.addRow(new String []{nome,idade,telefone,rg,cpf});
-    }//GEN-LAST:event_botãoincluirActionPerformed
+        DefaultTableModel val = (DefaultTableModel) tabela.getModel();
+        val.addRow(new String []{nome,idade,raca,peso,tipo,clienteResponsavel});
+        
+         limparCampos();
+         
+    }
+    public void limparCampos() {
+        nome.setText("");
+        idade.setText("");
+        raca.setText("");
+        peso.setText("");
+        tipo.setText("");
+        clienteResponsavel.setText("");
 
-    private void botãomodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãomodificarActionPerformed
+        nome.requestFocus();
+         
+    }//GEN-LAST:event_botaoIncluirActionPerformed
+
+    private void botaoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoModificarActionPerformed
       
-    }//GEN-LAST:event_botãomodificarActionPerformed
+    }//GEN-LAST:event_botaoModificarActionPerformed
 
-    private void botãoexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoexcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botãoexcluirActionPerformed
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+       ((DefaultTableModel) tabela.getModel() ).removeRow(tabela.getSelectedRow());
+    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,9 +270,9 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botãoexcluir;
-    private javax.swing.JButton botãoincluir;
-    private javax.swing.JButton botãomodificar;
+    private javax.swing.JButton botaoExcluir;
+    private javax.swing.JButton botaoIncluir;
+    private javax.swing.JButton botaoModificar;
     private javax.swing.JTextField clienteResponsavel;
     private javax.swing.JTextField idade;
     private javax.swing.JLabel jLabel1;
@@ -281,7 +288,7 @@ public class TelaCadastroAnimais extends javax.swing.JFrame {
     private javax.swing.JTextField nome;
     private javax.swing.JTextField peso;
     private javax.swing.JTextField raca;
-    private javax.swing.JTable tabela1;
+    private javax.swing.JTable tabela;
     private javax.swing.JTextField tipo;
     // End of variables declaration//GEN-END:variables
 }
